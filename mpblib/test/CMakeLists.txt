@@ -7,7 +7,6 @@ file(
     "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp"
 )
 
-
 set(Boost_USE_STATIC_LIBS OFF) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF)
@@ -22,7 +21,7 @@ include_directories (${CMAKE_SOURCE_DIR}/mpblib/src
 
 
 find_package(GTest REQUIRED)
-FIND_PACKAGE ( Threads REQUIRED )
+find_package( Threads REQUIRED )
 include(GoogleTest)
 
 link_directories(${Boost_LIBRARY_DIRS})
@@ -34,6 +33,7 @@ target_link_libraries (testrun
   ${Boost_DATE_TIME_LIBRARY}
   ${GTEST_LIBRARIES}
   ${GTEST_MAIN_LIBRARIES}
+  Threads::Threads
   mpblib
   )
 				   
